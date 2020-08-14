@@ -1,39 +1,49 @@
 class Form{
     constructor(){
-
+        this.title = createElement('h2')
+        this.title2 = createElement('h3')
+        this.inputBox = createInput("")
+        this.button = createButton("Ready!")
+        this.greeting = createElement('h3')    
     }
      display(){
-        var title = createElement('h2')
-        title.html("Car Racing")
-        title.position(130, 0);
-
-        var title2 = createElement('h3')
-        title2.html("Name")
-        title2.position(70, 140)
-
-        var inputBox = createInput("")
-        inputBox.position(130, 160);
-
-        var button = createButton("Ready!")
-        button.position(250, 200);
-
-        var greeting = createElement('h5')
         
-        button.mousePressed(function(){
+        this.title.html("Car Racing")
+        this.title.position(130, 0);
 
-            inputBox.hide()
-            button.hide()
-            title2.hide()
+        this.title2.html("Name")
+        this.title2.position(70, 140)
 
-            var name = inputBox.value()
+        
+        this.inputBox.position(130, 160);
+
+        
+        this.button.position(250, 200);
+
+        
+        this.button.mousePressed(()=>{
+
+            this.inputBox.hide()
+            this.button.hide()
+            this.title2.hide()
+
+            player.name = this.inputBox.value()
             playerCount = playerCount + 1
-            player.updateName(name)
+            player.index = playerCount
+            
+            player.updatePlayerInfo()
             player.updatePlayerCount(playerCount)
             
-            greeting.html("Welcome " + name)
-            greeting.position(130, 160);
+            this.greeting.html("Welcome " + player.name)
+            this.greeting.position(130, 160);
 
         })
+    }
+    hide(){
+        this.inputBox.hide()
+        this.button.hide()
+        this.title2.hide()
+        this.greeting.hide();
     }
 
 

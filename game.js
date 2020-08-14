@@ -22,4 +22,29 @@ class Game{
             form.display()
         }
     }
+    play(){
+        form.hide();
+        text("Game Started", 120, 100)
+        Player.getAllPlayerInfo();
+        if (allPlayers !== undefined){
+            var positionY = 120
+            for (var plr in allPlayers){
+                if(plr === "player" + player.index){
+                    fill("red");
+                }
+                else{
+                    fill("black");
+                }
+                text(allPlayers[plr].Name + ":" + allPlayers[plr].Distance, 100, positionY)
+                positionY = positionY + 20
+            }
+
+
+        }
+        if (keyIsDown(UP_ARROW) && player.index !== null){
+            player.distance = player.distance + 20
+            player.updatePlayerInfo();
+
+        }
+    }
 }
