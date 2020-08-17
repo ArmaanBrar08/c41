@@ -9,7 +9,7 @@ class Form{
      display(){
         
         this.title.html("Car Racing")
-        this.title.position(130, 0);
+        this.title.position(displayWidth/2, 0);
 
         this.title2.html("Name")
         this.title2.position(70, 140)

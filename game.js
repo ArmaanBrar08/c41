@@ -19,25 +19,43 @@ class Game{
             player = new Player();
             player.getPlayerCount();
             form = new Form();
-            form.display()
+            form.display();
         }
+        car1 = createSprite(100, 200);
+        car2 = createSprite(300, 200);
+        carSet = [car1, car2];
     }
     play(){
         form.hide();
         text("Game Started", 120, 100)
         Player.getAllPlayerInfo();
         if (allPlayers !== undefined){
-            var positionY = 120
+            var positionY = 120;
+            var positionX = 100;
+            var index = 0;
             for (var plr in allPlayers){
+
+                positionY = displayHeight - allPlayers[plr].Distance
+                carSet[index].x = positionX;
+                carSet[index].y = positionY;
+
                 if(plr === "player" + player.index){
-                    fill("red");
+                    carSet[index].shapeColor = "red";
+                    camera.position.x = displayWidth/2;
+                    camera.position.y = carSet[index].y;
                 }
                 else{
-                    fill("black");
+                    carSet[index].shapeColor = "black";
                 }
-                text(allPlayers[plr].Name + ":" + allPlayers[plr].Distance, 100, positionY)
-                positionY = positionY + 20
+
+                positionX = positionX + 200;
+                index = index + 1;
+
+                //text(allPlayers[plr].Name + ":" + allPlayers[plr].Distance, 100, positionY)
+                //positionY = positionY + 20
             }
+
+            drawSprites();
 
 
         }
