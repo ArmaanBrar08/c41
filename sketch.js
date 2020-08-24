@@ -5,11 +5,14 @@ var gameState = 0;
 var playerCount = 0;
 var allPlayers, distance = 0;
 var car1, car2, carSet = [];
+var carSound;
 
 function preload(){
     car1Image = loadImage("Images/car1.png");
     car2Image = loadImage("Images/car2.png");
     trackImage = loadImage("Images/track.jpg");
+
+    carSound = loadSound("sounds/car.mp3");
 }
 
 

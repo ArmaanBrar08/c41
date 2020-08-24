@@ -47,6 +47,8 @@ class Game{
                     carSet[index].shapeColor = "red";
                     camera.position.x = displayWidth/2;
                     camera.position.y = carSet[index].y;
+                    fill("blue");
+                    ellipse(carSet[index].x, carSet[index].y, 100, 100);
                 }
                 else{
                     carSet[index].shapeColor = "black";
@@ -66,7 +68,7 @@ class Game{
         if (keyIsDown(UP_ARROW) && player.index !== null){
             player.distance = player.distance + 20
             player.updatePlayerInfo();
-console.log(player.distance);
+            carSound.play();
         }
         if (player.distance === 3640){
             gameState = 2;
